@@ -4,24 +4,24 @@ import Menu, { MenuMode, MenuProps } from './menu'
 import MenuItem from './menuItem'
 
 const testProps: MenuProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   onSelect: jest.fn(),
   className: 'test',
 }
 
 const testVerticalProps: MenuProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   mode: MenuMode.Vertical,
 }
 
 const generateMenu = (props: MenuProps) => {
   return (
     <Menu {...props}>
-      <MenuItem index={0}>Active MenuItem</MenuItem>
-      <MenuItem index={1} disabled>
+      <MenuItem index={'0'}>Active MenuItem</MenuItem>
+      <MenuItem index={'1'} disabled>
         Disabled MenuItem
       </MenuItem>
-      <MenuItem index={2}>Normal MenuItem</MenuItem>
+      <MenuItem index={'2'}>Normal MenuItem</MenuItem>
     </Menu>
   )
 }
@@ -50,10 +50,10 @@ describe('menu and menuItem component', () => {
     fireEvent.click(NormalItem)
     expect(NormalItem).toHaveClass('is-active')
     expect(ActiveElement).not.toHaveClass('is-active')
-    expect(testProps.onSelect).toHaveBeenCalledWith(2)
+    expect(testProps.onSelect).toHaveBeenCalledWith('2')
     fireEvent.click(DisabledElement)
     expect(DisabledElement).not.toHaveClass('is-active')
-    expect(testProps.onSelect).not.toHaveBeenCalledWith(1)
+    expect(testProps.onSelect).not.toHaveBeenCalledWith('1')
   })
 
   it('should render vertical mode when mode is set to vertical', () => {
