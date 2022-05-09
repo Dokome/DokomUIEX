@@ -1,13 +1,13 @@
 import React from 'react'
 import { fireEvent, render, screen } from '@testing-library/react'
-import Button, { ButtonPorps, ButtonSize } from './button'
+import Button, { ButtonPorps } from './button'
 const defaultProps = {
   onClick: jest.fn(),
 }
 
 const testProps: ButtonPorps = {
   btnType: 'primary',
-  size: ButtonSize.Large,
+  size: 'lg',
   className: 'klass',
 }
 
