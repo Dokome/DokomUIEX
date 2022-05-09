@@ -6,7 +6,7 @@ import {
   screen,
   waitFor,
 } from '@testing-library/react'
-import Menu, { MenuMode, MenuProps } from './menu'
+import Menu, { MenuProps } from './menu'
 import MenuItem from './menuItem'
 import SubMenu from './subMenu'
 
@@ -18,7 +18,7 @@ const testProps: MenuProps = {
 
 const testVerticalProps: MenuProps = {
   defaultIndex: '0',
-  mode: MenuMode.Vertical,
+  mode: 'vertical',
 }
 
 const generateMenu = (props: MenuProps) => {

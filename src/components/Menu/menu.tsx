@@ -2,10 +2,12 @@ import React, { createContext, useState } from 'react'
 import { MenuItemProps } from './menuItem'
 import classNames from 'classnames'
 
-export enum MenuMode {
-  Horizontal = 'horizontal',
-  Vertical = 'vertical',
-}
+// export enum MenuMode {
+//   Horizontal = 'horizontal',
+//   Vertical = 'vertical',
+// }
+
+export type MenuMode = 'horizontal' | 'vertical'
 
 type SelectCallback = (selectedIndex: string) => void
 
@@ -85,7 +87,7 @@ const Menu: React.FC<MenuProps> = props => {
 
 Menu.defaultProps = {
   defaultIndex: '0',
-  mode: MenuMode.Horizontal,
+  mode: 'horizontal',
   defaultOpenSubMenus: [],
 }
 

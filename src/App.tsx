@@ -1,7 +1,7 @@
 import React from 'react'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
-import Menu, { MenuMode } from './components/Menu/menu'
+import Menu from './components/Menu/menu'
 import MenuItem from './components/Menu/menuItem'
 import SubMenu from './components/Menu/subMenu'
 import Icon from './components/Icon/icon'
@@ -10,7 +10,7 @@ library.add(fas)
 function App() {
   return (
     <div className="App">
-      <Menu mode={MenuMode.Horizontal} defaultOpenSubMenus={['1']}>
+      <Menu mode="horizontal" defaultOpenSubMenus={['1']}>
         <MenuItem>
           <Icon icon="face-angry" />
           <span> Coffe</span>

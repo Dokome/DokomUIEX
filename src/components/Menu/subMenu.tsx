@@ -1,5 +1,5 @@
 import React, { useContext, FunctionComponentElement, useState } from 'react'
-import { MenuContext, MenuMode } from './menu'
+import { MenuContext } from './menu'
 import { MenuItemProps } from './menuItem'
 import classNames from 'classnames'
 import Icon from '../Icon/icon'
@@ -16,13 +16,13 @@ const SubMenu: React.FC<SubMenuProps> = props => {
   const context = useContext(MenuContext)
   const opendSubMenus = context.defaultOpenSubMenus as string[]
   const isOpend =
-    index && context.mode === MenuMode.Vertical && opendSubMenus.includes(index)
+    index && context.mode === 'vertical' && opendSubMenus.includes(index)
   const [menuOpen, setOpen] = useState(isOpend)
 
   const classes = classNames('menu-item submenu-item', className, {
     'is-active': context.index === index,
     'is-opened': menuOpen,
-    'is-vertical': context.mode === MenuMode.Vertical,
+    'is-vertical': context.mode === 'vertical',
   })
   //
   const handleClick = (e: React.MouseEvent) => {
@@ -40,9 +40,9 @@ const SubMenu: React.FC<SubMenuProps> = props => {
   }
 
   const clickEvents =
-    context.mode === MenuMode.Vertical ? { onClick: handleClick } : {}
+    context.mode === 'vertical' ? { onClick: handleClick } : {}
   const hoverEvents =
-    context.mode === MenuMode.Horizontal
+    context.mode === 'horizontal'
       ? {
           onMouseEnter: (e: React.MouseEvent) => handleMouse(e, true),
           onMouseLeave: (e: React.MouseEvent) => handleMouse(e, false),
