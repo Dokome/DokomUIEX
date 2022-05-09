@@ -1,32 +1,19 @@
 import React from 'react'
-import Button, { ButtonType, ButtonSize } from './components/Button/button'
+import Menu, { MenuMode } from './components/Menu/menu'
+import MenuItem from './components/Menu/menuItem'
+import SubMenu from './components/Menu/subMenu'
 
 function App() {
   return (
     <div className="App">
-      <Button
-        btnType={ButtonType.Link}
-        size={ButtonSize.Large}
-        href={'https://baidu.com'}
-        target="_blank"
-      >
-        Hello World Link
-      </Button>
-      <Button btnType={ButtonType.Default} size={ButtonSize.Small}>
-        {ButtonType.Default}
-      </Button>
-      <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>
-        {ButtonType.Primary}
-      </Button>
-      <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>
-        {ButtonType.Danger}
-      </Button>
-      <Button btnType={ButtonType.Warning} size={ButtonSize.Large} autoFocus>
-        {ButtonType.Warning}
-      </Button>
-      <Button btnType={ButtonType.Success} size={ButtonSize.Large}>
-        {ButtonType.Success}
-      </Button>
+      <Menu mode={MenuMode.Vertical} defaultOpenSubMenus={['1']}>
+        <MenuItem>MenuItem 1</MenuItem>
+        <SubMenu title="Dropdown">
+          <MenuItem>Dropdown 1</MenuItem>
+          <MenuItem>Dropdown 2</MenuItem>
+        </SubMenu>
+        <MenuItem>MenuItem 3</MenuItem>
+      </Menu>
     </div>
   )
 }
