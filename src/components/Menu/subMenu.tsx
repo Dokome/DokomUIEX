@@ -3,6 +3,7 @@ import { MenuContext } from './menu'
 import { MenuItemProps } from './menuItem'
 import classNames from 'classnames'
 import Icon from '../Icon/icon'
+import Transition from '../Transition/transition'
 
 export interface SubMenuProps {
   index?: string
@@ -16,7 +17,7 @@ const SubMenu: React.FC<SubMenuProps> = props => {
   const context = useContext(MenuContext)
   const opendSubMenus = context.defaultOpenSubMenus as string[]
   const isOpend =
-    index && context.mode === 'vertical' && opendSubMenus.includes(index)
+    !!index && context.mode === 'vertical' && opendSubMenus.includes(index)
   const [menuOpen, setOpen] = useState(isOpend)
 
   const classes = classNames('menu-item submenu-item', className, {
@@ -64,7 +65,11 @@ const SubMenu: React.FC<SubMenuProps> = props => {
       }
     })
 
-    return <ul className={subMenuClasses}>{childrenComponent}</ul>
+    return (
+      <Transition in={menuOpen} timeout={300} animation="zoom-in-top">
+        <ul className={subMenuClasses}>{childrenComponent}</ul>
+      </Transition>
+    )
   }
 
   return (
